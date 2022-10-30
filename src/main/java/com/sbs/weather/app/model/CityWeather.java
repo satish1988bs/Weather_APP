@@ -26,6 +26,16 @@ public class CityWeather {
 	public City city;
 	public String warning;
 
+	public CityWeather(String cod, int message, int cnt, ArrayList<WeatherData> list, City city, String warning) {
+		super();
+		this.cod = cod;
+		this.message = message;
+		this.cnt = cnt;
+		this.list = list;
+		this.city = city;
+		this.warning = warning;
+	}
+
 	public CityWeather() {
 		super();
 		// TODO Auto-generated constructor stub
