@@ -26,6 +26,11 @@ public class CityWeather {
 	public City city;
 	public String warning;
 
+	public CityWeather() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 	public String getCod() {
 		return cod;
 	}
