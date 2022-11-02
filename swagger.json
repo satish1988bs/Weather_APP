@@ -1,0 +1,143 @@
+{
+	"swagger": "2.0",
+	"info": {
+		"description": "Weather Api Creator",
+		"version": "1.0",
+		"title": "Weather API",
+		"termsOfService": "Terms of Service",
+		"contact": {
+			"name": "Satish Balu Sutar",
+			"url": "https://github.com/SatishSutar",
+			"email": "s1a9i88@gmail.com"
+		},
+		"license": {
+			"name": "Apache License Version 2.0",
+			"url": "https://www.apache.org/licesen.html"
+		}
+	},
+	"host": "localhost:8083",
+	"tags": [
+		{
+			"name": "weather-controller",
+			"description": "Weather Controller"
+		}
+	],
+	"paths": {
+		"/weatherapi/api/forecast/{forcastDaysCount}/{city}/{isOffline}": {
+			"get": {
+				"tags": [
+					"weather-controller"
+				],
+				"summary": "getWeatherForecastFor",
+				"operationId": "getWeatherForecastForUsingGET",
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"name": "city",
+						"in": "path",
+						"description": "city",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"name": "forcastDaysCount",
+						"in": "path",
+						"description": "forcastDaysCount",
+						"required": true,
+						"type": "integer",
+						"format": "int32"
+					},
+					{
+						"name": "isOffline",
+						"in": "path",
+						"description": "isOffline",
+						"required": true,
+						"type": "boolean"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/ForecastWeather"
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		},
+		"/weatherapi/api/weatherdata/{forcastDaysCount}/{city}/{isOffline}": {
+			"get": {
+				"tags": [
+					"weather-controller"
+				],
+				"summary": "fetchWeatherData",
+				"operationId": "fetchWeatherDataUsingGET",
+				"produces": [
+					"*/*"
+				],
+				"parameters": [
+					{
+						"name": "city",
+						"in": "path",
+						"description": "city",
+						"required": true,
+						"type": "string"
+					},
+					{
+						"name": "forcastDaysCount",
+						"in": "path",
+						"description": "forcastDaysCount",
+						"required": true,
+						"type": "integer",
+						"format": "int32"
+					},
+					{
+						"name": "isOffline",
+						"in": "path",
+						"description": "isOffline",
+						"required": true,
+						"type": "boolean"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "OK",
+						"schema": {
+							"$ref": "#/definitions/CityWeather"
+						}
+					},
+					"401": {
+						"description": "Unauthorized"
+					},
+					"403": {
+						"description": "Forbidden"
+					},
+					"404": {
+						"description": "Not Found"
+					}
+				}
+			}
+		}
+	},
+	"definitions": {
+		"CityWeather": {
+			"type": "object",
+			"title": "CityWeather"
+		},
+		"ForecastWeather": {
+			"type": "object",
+			"title": "ForecastWeather"
+		}
+	}
+}

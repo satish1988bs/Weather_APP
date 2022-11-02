@@ -1,6 +1,6 @@
 server:
   port:
-    8082
+    8083
   servlet.context-path:
     /weatherapi  
 spring:
@@ -8,10 +8,14 @@ spring:
     name: weatherservice
   profiles:
     active: dev
+  main:
+    allow-circular-references: true    
+  mvc:
+    pathmatch:
+      matching-strategy:  ANT_PATH_MATCHER 
 email: yaml@satish.com    
 weather:
   api:
     appid: d2929e9483efc82c82c32ee7e02d563e
     mode: json
     units: metric
-      

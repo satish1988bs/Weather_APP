@@ -95,6 +95,8 @@ public class WeatherService implements AppConstant {
 		List<String> warnings=new ArrayList<>();
 		tempMap.put("date", w.getDt());
 		tempMap.put("date text", w.getDt_txt());
+		if (null!=w.getMain() ) tempMap.put("temperature", w.getMain().getTemp());
+		if (null!=w.getWeather() ) tempMap.put("weather", w.getWeather().stream().findAny().orElse(null).getDescription());
 		warnings.addAll(w.getWeather().stream().filter(wt->null!=wt.getWarning()).map(Weather::getWarning).collect(Collectors.toList()));
 		if (null!=w.getWind().getWarning()) warnings.add(w.getWind().getWarning());
 		if(null!=w.getMain().getWarning()) warnings.add(w.getMain().getWarning());
